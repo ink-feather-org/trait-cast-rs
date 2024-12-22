@@ -4,7 +4,7 @@
 /// Syntax: `<concrete struct/enum/union> => (<target traits>, ...)`
 ///
 /// # Usage
-/// ```no_build
+/// ```ignore
 /// make_trait_castable_decl! {
 ///     SrcStruct1 => (DstTrait1, DstTrait2),
 ///     SrcStruct2 => (DstTrait3, DstTrait4),

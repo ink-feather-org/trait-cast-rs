@@ -42,30 +42,30 @@ impl quote::ToTokens for TraitCastTargets {
 /// supposed to be downcastable from a dyn `TraitcastableAny`.
 ///
 /// Example:
-/// ```no_build
-///   extern crate trait_cast_rs;
+/// ```ignore
+/// extern crate trait_cast;
 ///
-///   use trait_cast::{make_trait_castable, TraitcastTarget, TraitcastTo, TraitcastableAny};
+/// use trait_cast::{make_trait_castable, TraitcastTarget, TraitcastTo, TraitcastableAny};
 ///
 ///
-///   #[make_trait_castable(Print)]
-///   struct Source(i32);
+/// #[make_trait_castable(Print)]
+/// struct Source(i32);
 ///
-///   trait Print {
-///     fn print(&self);
+/// trait Print {
+///   fn print(&self);
+/// }
+/// impl Print for Source {
+///   fn print(&self) {
+///     println!("{}", self.0)
 ///   }
-///   impl Print for Source {
-///     fn print(&self) {
-///       println!("{}", self.0)
-///     }
-///   }
+/// }
 ///
-///   fn main() {
-///     let source = Box::new(Source(5));
-///     let castable: Box<dyn TraitcastableAny> = source;
-///     let x: &dyn Print = castable.downcast_ref().unwrap();
-///     x.print();
-///   }
+/// fn main() {
+///   let source = Box::new(Source(5));
+///   let castable: Box<dyn TraitcastableAny> = source;
+///   let x: &dyn Print = castable.downcast_ref().unwrap();
+///   x.print();
+/// }
 /// ```
 #[proc_macro_attribute]
 pub fn make_trait_castable(args: TokenStream1, input: TokenStream1) -> TokenStream1 {
