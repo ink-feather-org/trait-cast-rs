@@ -71,8 +71,7 @@ impl quote::ToTokens for TraitCastTargets {
 pub fn make_trait_castable(args: TokenStream1, input: TokenStream1) -> TokenStream1 {
   proc_macro_logger_default_setup();
 
-  let cargo_manifest = CargoManifest::shared();
-  let crate_path = cargo_manifest.resolve_crate_path("trait-cast", &[]);
+  let crate_path = CargoManifest::shared().resolve_crate_path("trait-cast", &[]);
 
   // Convert the input to a TokenStream2
   let input = TokenStream2::from(input);

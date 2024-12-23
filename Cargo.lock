@@ -13,9 +13,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-manifest-proc-macros"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ad45b6a088a04f94cd85cbb2364f478b0a851aef8222eda0971e4cfacedb067"
+checksum = "1cac98b19667634f80e7050c8d34ce936e3948a27f12f01bdcc1a14c22503558"
 dependencies = [
  "syn",
  "thiserror",
@@ -75,7 +75,9 @@ checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 [[package]]
 name = "libc"
 version = "0.2.169"
+version = "0.2.169"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b5aba8db14291edd000dfcc4d620c7ebfb122c613afb886ca8803fa4e128a20a"
 checksum = "b5aba8db14291edd000dfcc4d620c7ebfb122c613afb886ca8803fa4e128a20a"
 
 [[package]]
@@ -254,9 +256,9 @@ checksum = "3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67"
 
 [[package]]
 name = "syn"
-version = "2.0.90"
+version = "2.0.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "919d3b74a5dd0ccd15aeb8f93e7006bd9e14c295087c9896a110f490752bcf31"
+checksum = "d53cbcb5a243bd33b7858b1d7f4aca2153490815872d86d955d6ea29f743c035"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -265,18 +267,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "2.0.8"
+version = "2.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08f5383f3e0071702bf93ab5ee99b52d26936be9dedd9413067cbdcddcb6141a"
+checksum = "f072643fd0190df67a8bab670c20ef5d8737177d6ac6b2e9a236cb096206b2cc"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "2.0.8"
+version = "2.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2f357fcec90b3caef6623a099691be676d033b40a058ac95d2a6ade6fa0c943"
+checksum = "7b50fa271071aae2e6ee85f842e2e28ba8cd2c5fb67f11fcb1fd70b276f9e7d4"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -428,15 +430,16 @@ dependencies = [
 
 [[package]]
 name = "trait-cast"
-version = "0.3.4"
+version = "0.3.3"
 dependencies = [
  "trait-cast-macros",
 ]
 
 [[package]]
 name = "trait-cast-macros"
-version = "0.3.4"
+version = "0.3.3"
 dependencies = [
+ "cargo-manifest-proc-macros",
  "cargo-manifest-proc-macros",
  "proc-macro2",
  "quote",
