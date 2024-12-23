@@ -53,7 +53,7 @@ unused_qualifications = "warn"
 
 [package]
 name = "trait-cast"
-version = "0.3.4"
+version = "0.3.5"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 description = "Get your own Any with support for casting to trait objects."
@@ -70,7 +70,7 @@ alloc = []
 min_specialization = []
 
 [dependencies]
-trait-cast-macros = { path = "macros", version = "0.3.3" }
+trait-cast-macros = { path = "macros", version = "0.3.5" }
 
 [lints]
 workspace = true
