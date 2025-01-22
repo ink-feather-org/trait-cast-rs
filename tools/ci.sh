@@ -8,7 +8,11 @@ export RUSTDOCFLAGS="--deny warnings"
 setup_toolchain() {
   local toolchain=$1
   echo "Installing and setting up Rust toolchain: $toolchain"
-  rustup toolchain install "$toolchain" --component rustc,cargo,rustfmt,rust-std,clippy,miri,clippy
+  local components="rustc,cargo,rustfmt,rust-std,clippy"
+  if [[ "$toolchain" == "nightly" ]]; then
+    components="$components,miri"
+  fi
+  rustup toolchain install "$toolchain" --component "$components"
   rustup override set "$toolchain"
 }
 
