@@ -1,5 +1,5 @@
-use crate::{TraitcastableAny, TraitcastableAnyInfra, make_trait_castable_decl};
-use alloc::boxed::Box;
+#![allow(dead_code)]
+use crate::make_trait_castable_decl;
 
 const fn _test_empty_trait_cast_targets() {
   struct Woof {}
@@ -23,8 +23,12 @@ impl Print for Source {
   }
 }
 
+#[cfg(feature = "alloc")]
 #[test]
 fn test_trait_castable() {
+  use crate::{TraitcastableAny, TraitcastableAnyInfra};
+  use alloc::boxed::Box;
+
   let source = Box::new(Source(5));
   let castable: Box<dyn TraitcastableAny> = source;
   let x: &dyn Print = castable.downcast_ref().unwrap();

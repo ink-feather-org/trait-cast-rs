@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["tests/remapped_dependency_test"]
+members = ["macros"]
 
 [workspace.lints.clippy]
 let_and_return = "allow"
@@ -53,7 +53,7 @@ unused_qualifications = "warn"
 
 [package]
 name = "trait-cast"
-version = "0.3.5"
+version = "0.3.6"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 description = "Get your own Any with support for casting to trait objects."
@@ -70,7 +70,7 @@ alloc = []
 min_specialization = []
 
 [dependencies]
-trait-cast-macros = { path = "macros", version = "0.3.5" }
+trait-cast-macros = { path = "macros", version = "0.3.6" }
 
 [lints]
 workspace = true
@@ -78,3 +78,11 @@ workspace = true
 [package.metadata.docs.rs]
 rustdoc-args = ["-Zunstable-options", "--generate-link-to-definition"]
 all-features = true
+
+[[example]]
+name = "manual"
+required-features = ["alloc"]
+
+[[example]]
+name = "with_proc_macro"
+required-features = ["alloc"]

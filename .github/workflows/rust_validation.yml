@@ -19,8 +19,6 @@ env:
   CARGO_NET_RETRY: 10
   RUST_BACKTRACE: 1
   CARGO_TERM_COLOR: always
-  RUSTFLAGS: --deny warnings
-  RUSTDOCFLAGS: --deny warnings
   RUSTUP_MAX_RETRIES: 10
 
 defaults:
@@ -34,23 +32,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: nightly
-          components: rustc, cargo, rustfmt, rust-std, clippy, rust-src, rust-analysis
-
-      - name: Check format
-        run: cargo fmt --all --check
-      - name: Clippy
-        run: cargo clippy --workspace --all-features --all-targets
-      - name: Build
-        run: cargo build --verbose
-      - name: Build --no-default-features
-        run: cargo build --verbose --no-default-features
-      - name: Build --all-features
-        run: cargo build --verbose --all-features --all-targets
-      - name: Run tests
-        run: cargo test --verbose --lib --examples
-      - name: Run tests --all-features
-        run: cargo test --verbose --all-features --lib --examples
+      - name: Run the ./tools/ci.sh script
+        run: ./tools/ci.sh

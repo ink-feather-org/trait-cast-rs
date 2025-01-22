@@ -37,8 +37,11 @@ Note: No modifications on the *target* traits are necessary. Which allows you to
 ## Example
 
 ```rust
-# #![cfg_attr(feature = "min_specialization", feature(min_specialization))]
-# #![feature(ptr_metadata)]
+#![cfg_attr(feature = "min_specialization", feature(min_specialization))]
+#![feature(ptr_metadata)]
+# #[cfg(feature = "alloc")]
+# mod feature_gated {
+# fn main() {
 use trait_cast::{
   make_trait_castable, TraitcastableAny, TraitcastableAnyInfra, TraitcastableAnyInfraExt,
 };
@@ -57,6 +60,8 @@ let source = Box::new(Source(5));
 let castable: Box<dyn TraitcastableAny> = source;
 let x: &dyn Print = castable.downcast_ref().unwrap();
 x.print();
+# }
+# }
 ```
 
 ## EVEN MORE Examples 🔥
