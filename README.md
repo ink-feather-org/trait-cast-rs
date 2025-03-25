@@ -27,8 +27,8 @@ Note: No modifications on the *target* traits are necessary. Which allows you to
 1. Add the `trait_cast_rs` crate to your `Cargo.toml` and switch to a nightly compiler.
 
 2. Add the `#[make_trait_castable(Trait1, Trait2, ...)]` macro to your struct/enum/union.
-    List all traits you eventually want to be able to `downcast` to.
-    You must implement all listed traits.
+   List all traits you eventually want to be able to `downcast` to.
+   You must implement all listed traits.
 
 3. Use references to `dyn TraitcastableAny` throughout your code instead of `dyn Any`.
 
@@ -118,8 +118,8 @@ I will give you a quick rundown of our *internal* operations: 💦
 Compile time:
 
 1. Add a `casting` function for every downcast path to the concrete type.
-    This function gets a `dyn TraitcastableAny`, which it then downcasts to a concrete type using `Any` in the background.
-    In the last step it casts the concrete type to the wanted trait object and returns it.
+   This function gets a `dyn TraitcastableAny`, which it then downcasts to a concrete type using `Any` in the background.
+   In the last step it casts the concrete type to the wanted trait object and returns it.
 
 2. Add a `traitcast_targets` function that returns a const slice of (`typeid`, transmuted *casting* function ptr).
 
@@ -145,15 +145,15 @@ This alternatives section is not exhaustive for a more objective/detailed compar
 see the alternatives section of [cast_trait_object](https://crates.io/crates/cast_trait_object#Alternatives).
 
 * [mopa](https://crates.io/crates/mopa):
-    Had its last update 6 years ago.
-    Has some unresolved [unsoundness issues](https://github.com/chris-morgan/mopa/issues/13).
-    Also requires modifications on traits themselves while we just modify the struct/enum/union (see note above).
+  Had its last update 6 years ago.
+  Has some unresolved [unsoundness issues](https://github.com/chris-morgan/mopa/issues/13).
+  Also requires modifications on traits themselves while we just modify the struct/enum/union (see note above).
 * [mopa-maintained](https://crates.io/crates/mopa-maintained):
-    Might have fixed some issues but still has an old code base with just a version bump.
+  Might have fixed some issues but still has an old code base with just a version bump.
 * [traitcast](https://crates.io/crates/traitcast):
-    Has no readme on [crates.io](https://crates.io/).
-    Uses a GLOBAL REGISTRY with `lazy_static`.
-    To be fair it allows you to use the default `Any` and doesn't require nightly.
+  Has no readme on [crates.io](https://crates.io/).
+  Uses a GLOBAL REGISTRY with `lazy_static`.
+  To be fair it allows you to use the default `Any` and doesn't require nightly.
 
 TODO: Remove this section once our last update is 6 years old.
 

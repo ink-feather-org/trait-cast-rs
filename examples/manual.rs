@@ -5,7 +5,6 @@
   reason = "Manual traitcast implementations require unsafe code."
 )]
 #![cfg_attr(feature = "min_specialization", feature(min_specialization))]
-#![feature(trait_upcasting)]
 #![allow(incomplete_features)]
 #![feature(ptr_metadata)]
 

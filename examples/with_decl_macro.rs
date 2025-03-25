@@ -1,7 +1,6 @@
 //! This example demonstrates how to use the `make_trait_castable_decl` macro to declare a type as traitcastable.
 #![cfg_attr(feature = "min_specialization", feature(min_specialization))]
 #![cfg_attr(feature = "downcast_unchecked", feature(downcast_unchecked))]
-#![feature(trait_upcasting)]
 #![allow(incomplete_features)]
 #![feature(ptr_metadata)]
 
