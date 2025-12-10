@@ -3,9 +3,10 @@
 #![cfg_attr(feature = "downcast_unchecked", feature(downcast_unchecked))]
 #![feature(ptr_metadata)]
 
-use trait_cast::{TraitcastableAny, TraitcastableAnyInfra, make_trait_castable};
+use trait_cast::{TraitcastableAny, TraitcastableAnyInfra};
 
-#[make_trait_castable(Dog)]
+#[derive(TraitcastableAny)]
+#[traitcast_targets(Dog)]
 struct HybridPet {
   name: String,
 }

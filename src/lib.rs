@@ -6,7 +6,6 @@
 )]
 #![allow(incomplete_features)]
 #![feature(
-  const_type_id,      // Needed to enable `TraitcastTarget::create` to be const
   const_type_name,    // Needed for `Debug` implementation
   min_specialization, // Needed to unify the interface between downcast and traitcast (could be avoided with !Trait bounds or trait generics)
   ptr_metadata,       // Needed to deal with pointer address(and provenance) separately from metadata
@@ -22,7 +21,7 @@ pub use trait_cast::*;
 
 mod decl_macro;
 
-pub use trait_cast_macros::make_trait_castable;
+pub use trait_cast_macros::TraitcastableAny;
 
 #[cfg(test)]
 mod test;

@@ -5,9 +5,10 @@
 
 use core::any::type_name;
 
-use trait_cast::{TraitcastableAny, TraitcastableAnyInfra, make_trait_castable};
+use trait_cast::{TraitcastableAny, TraitcastableAnyInfra};
 
-#[make_trait_castable(Dog<i32>, Dog<TestStruct<::std::primitive::i32>>, Cat<u128, u32>)]
+#[derive(TraitcastableAny)]
+#[traitcast_targets(Dog<i32>, Dog<TestStruct<::std::primitive::i32>>, Cat<u128, u32>)]
 struct HybridPet {
   name: String,
 }

@@ -248,7 +248,7 @@ macro_rules! implement_with_markers {
       #[cfg(feature = "downcast_unchecked")]
       unsafe fn downcast_ref_unchecked(&self) -> &Target {
         // SAFETY: We are just forwarding the call to the `Any` trait.
-        unsafe { <dyn Any>::downcast_ref_unchecked::<Target>(self) }
+        unsafe { <dyn Any>::downcast_unchecked_ref::<Target>(self) }
       }
 
       fn downcast_mut(&mut self) -> Option<&mut Target> {
@@ -257,7 +257,7 @@ macro_rules! implement_with_markers {
       #[cfg(feature = "downcast_unchecked")]
       unsafe fn downcast_mut_unchecked(&mut self) -> &mut Target {
         // SAFETY: We are just forwarding the call to the `Any` trait.
-        unsafe { <dyn Any>::downcast_mut_unchecked::<Target>(self) }
+        unsafe { <dyn Any>::downcast_unchecked_mut::<Target>(self) }
       }
     }
   };
