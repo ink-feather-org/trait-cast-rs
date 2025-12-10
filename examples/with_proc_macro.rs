@@ -1,4 +1,4 @@
-//! This example shows how to use the `make_trait_castable` macro to make a struct castable to multiple traits.
+//! This example shows how to use the `#[derive(TraitcastableAny)]` macro to make a struct castable to multiple traits.
 #![allow(clippy::undocumented_unsafe_blocks)]
 #![allow(
   unsafe_code,

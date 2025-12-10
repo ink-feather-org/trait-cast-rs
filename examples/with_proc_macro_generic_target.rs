@@ -1,4 +1,4 @@
-//! This example demonstrates how to use the `make_trait_castable` proc macro with a generic traitcast target struct.
+//! This example demonstrates how to use the `#[derive(TraitcastableAny)]` proc macro with a generic traitcast target struct.
 #![cfg_attr(feature = "min_specialization", feature(min_specialization))]
 #![cfg_attr(feature = "downcast_unchecked", feature(downcast_unchecked))]
 #![feature(ptr_metadata)]

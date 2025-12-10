@@ -1,5 +1,5 @@
 /// Declarative macro for automatic implementation of `TraitcastableAny` (and `TraitcastableTo`).
-/// Generally not for direct invocation, but rather used by the proc-macro `make_trait_castable`.
+/// Generally not for direct invocation, but rather used by the proc-macro `#[derive(TraitcastableAny)]`.
 ///
 /// Syntax: `<concrete struct/enum/union> => (<target traits>, ...)`
 ///

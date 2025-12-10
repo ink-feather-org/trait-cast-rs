@@ -16,7 +16,9 @@ This crate adds the `TraitcastableAny` replacement trait for `Any`.
 It closely resembles the `Any` trait for downcasting to a concrete type.
 Additionally the `TraitcastableAny` trait allows you to **directly** downcast to other `&dyn Trait`s.
 
-To make this work you must specify all *target* traits you want to be able to downcast to in the `make_trait_castable(Trait1, Trait2, ...)` attribute macro.
+To make this work you must:
+1. Add `#[derive(TraitcastableAny)]` to your struct/enum/union.
+2. Specify all *target* traits you want to be able to downcast to in the `traitcast_targets(Trait1, Trait2, ...)` attribute.
 This macro can be applied to structs, enums and unions.
 It implements the `TraitcastableAny` trait for your struct, enum or union.
 
@@ -26,13 +28,15 @@ Note: No modifications on the *target* traits are necessary. Which allows you to
 
 1. Add the `trait_cast_rs` crate to your `Cargo.toml` and switch to a nightly compiler.
 
-2. Add the `#[make_trait_castable(Trait1, Trait2, ...)]` macro to your struct/enum/union.
+2. Add the `#[derive(TraitcastableAny)]` macro to your struct/enum/union.
+
+3. Add the `#[traitcast_targets(Trait1, Trait2, ...)]` macro to your struct/enum/union.
    List all traits you eventually want to be able to `downcast` to.
    You must implement all listed traits.
 
-3. Use references to `dyn TraitcastableAny` throughout your code instead of `dyn Any`.
+4. Use references to `dyn TraitcastableAny` throughout your code instead of `dyn Any`.
 
-4. Enjoy downcasting to trait objects.
+5. Enjoy downcasting to trait objects.
 
 ## Example
 
@@ -68,9 +72,6 @@ x.print();
 ## EVEN MORE Examples 🔥
 
 Check out the [examples](https://github.com/ink-feather-org/trait-cast-rs/tree/main/examples).
-
-If you want to do something the `make_trait_castable` attribute macro can't handle (like implementing for generic structs - pull requests are welcome)
-check out the `manual*.rs` examples.
 
 There is also a decl marco available - check out the `with_decl_macro*.rs` examples.
 
