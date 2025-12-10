@@ -19,8 +19,6 @@ Additionally the `TraitcastableAny` trait allows you to **directly** downcast to
 To make this work you must:
 1. Add `#[derive(TraitcastableAny)]` to your struct/enum/union.
 2. Specify all *target* traits you want to be able to downcast to in the `traitcast_targets(Trait1, Trait2, ...)` attribute.
-This macro can be applied to structs, enums and unions.
-It implements the `TraitcastableAny` trait for your struct, enum or union.
 
 Note: No modifications on the *target* traits are necessary. Which allows you to downcast to traits of other libraries you don't control.
 
