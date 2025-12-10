@@ -43,9 +43,10 @@ Note: No modifications on the *target* traits are necessary. Which allows you to
 # mod feature_gated {
 # fn main() {
 use trait_cast::{
-  make_trait_castable, TraitcastableAny, TraitcastableAnyInfra, TraitcastableAnyInfraExt,
+  TraitcastableAny, TraitcastableAnyInfra, TraitcastableAnyInfraExt,
 };
-#[make_trait_castable(Print)]
+#[derive(TraitcastableAny)]
+#[traitcast_targets(Print)]
 struct Source(i32);
 trait Print {
   fn print(&self);

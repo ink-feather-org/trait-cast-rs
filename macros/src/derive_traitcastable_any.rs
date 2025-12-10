@@ -46,7 +46,7 @@ pub fn derive_traitcastable_any(input: TokenStream) -> TokenStream {
       Err(err) => {
         return Error::new_spanned(
           attr,
-          format!("Failed to parse traitcast_targets attribute: {}", err),
+          format!("Failed to parse traitcast_targets attribute: {err}"),
         )
         .to_compile_error()
         .into();
