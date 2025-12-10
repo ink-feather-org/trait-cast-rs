@@ -6,7 +6,6 @@
 )]
 #![allow(incomplete_features)]
 #![feature(
-  specialization,
   const_type_name,    // Needed for `Debug` implementation
   min_specialization, // Needed to unify the interface between downcast and traitcast (could be avoided with !Trait bounds or trait generics)
   ptr_metadata,       // Needed to deal with pointer address(and provenance) separately from metadata
